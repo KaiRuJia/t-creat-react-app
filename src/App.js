@@ -1,23 +1,12 @@
-import logo from './logo.svg';
 import './App.css';
+import { daysBetweenDate }  from 'tsdx-library';
 
 function App() {
+  console.log(daysBetweenDate('2024-07-01', '2024-07-04'))
+  // console.log(CONFIG, 'CONFIG')
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        111
     </div>
   );
 }
