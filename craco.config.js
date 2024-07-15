@@ -1,7 +1,6 @@
-const WebpackPlugin = require('./MyWebpackPlugin')
+const WebpackPlugin = require('1-webpack-plugin')
 const webpack = require('webpack')
 const MyWebpackPlugin = new WebpackPlugin()
-console.log(JSON.stringify(MyWebpackPlugin.commitHash), '999')
 module.exports = {
   webpack: {
     alias: {
@@ -9,17 +8,17 @@ module.exports = {
     },
     plugins: [
       // 添加或覆盖Webpack插件
+      MyWebpackPlugin,
+      new webpack.DefinePlugin({
+        CONFIG: {
+          COMMITHASH: JSON.stringify(MyWebpackPlugin.commitHash)
+        }
+      })
     ],
   },
   babel: {
     plugins: [
       // 添加或覆盖Babel插件
-      MyWebpackPlugin,
-      // new webpack.DefinePlugin({
-      //   CONFIG: {
-      //     COMMITHASH: JSON.stringify(MyWebpackPlugin.commitHash)
-      //   }
-      // })
     ],
   },
 };
